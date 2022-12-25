@@ -13,6 +13,8 @@ public static class XmlNodeExtensions
         stm.Position = default;
         var ser = new XmlSerializer(typeof(T));
 
-        return (T)(ser.Deserialize(stm));
+#pragma warning disable CS8603 // Possible null reference return.
+        return (T)ser.Deserialize(stm);
+#pragma warning restore CS8603 // Possible null reference return.
     }
 }

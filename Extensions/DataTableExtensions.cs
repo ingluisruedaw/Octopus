@@ -45,11 +45,6 @@ public static class DataTableExtensions
         return obj;
     }
 
-    /// <summary>
-    /// Method return object JSON.
-    /// </summary>
-    /// <param name="data">Object type <seealso cref="DataTable"/>.</param>
-    /// <returns>JSON string</returns>
     public static string Json(this DataTable data)
     {
         string json = default;
