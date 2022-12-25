@@ -18,10 +18,11 @@
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<AnalysisLevel>latest</AnalysisLevel>
 	<EnableNETAnalyzers>True</EnableNETAnalyzers>
+	<SignAssembly>False</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
-	<None Include="..\README.md">
+	<None Include="..\Octopus\README.md">
 	  <Pack>True</Pack>
 	  <PackagePath>\</PackagePath>
 	</None>
