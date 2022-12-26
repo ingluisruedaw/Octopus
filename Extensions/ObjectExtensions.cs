@@ -1,4 +1,7 @@
 ﻿using System.Reflection;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace System;
 
@@ -18,5 +21,27 @@ public static class ObjectExtensions
         }
 
         return false;
+    }
+
+    public static string GetKeyString(this object obj)
+    {
+        try
+        {
+            var type = obj.GetType();
+            string pubKeyString;
+            {
+                var sw = new StringWriter();
+                var xs = new XmlSerializer(type);
+                xs.Serialize(sw, obj);
+                pubKeyString = sw.ToString();
+            }
+
+            XDocument doc = XDocument.Parse(pubKeyString);
+            return doc.ToString();
+        }
+        catch (XmlException ex)
+        {
+            throw ex;
+        }
     }
 }
