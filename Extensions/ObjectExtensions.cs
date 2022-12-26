@@ -2,11 +2,13 @@
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.Xml;
+using System.Diagnostics;
 
 namespace System;
 
 public static class ObjectExtensions
 {
+    [DebuggerStepThrough]
     public static bool PropsIsNulOrEmpty(this object obj)
     {
         var myType = obj.GetType();
@@ -23,6 +25,7 @@ public static class ObjectExtensions
         return false;
     }
 
+    [DebuggerStepThrough]
     public static string GetKeyString(this object obj)
     {
         try

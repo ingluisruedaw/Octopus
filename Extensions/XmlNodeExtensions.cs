@@ -1,9 +1,11 @@
-﻿using System.Xml.Serialization;
+﻿using System.Diagnostics;
+using System.Xml.Serialization;
 
 namespace System.Xml;
 
 public static class XmlNodeExtensions
 {
+    [DebuggerStepThrough]
     public static T ToObject<T>(this XmlNode node)
     {
         var stm = new MemoryStream();

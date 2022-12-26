@@ -1,9 +1,11 @@
 ﻿using System.Data;
+using System.Diagnostics;
 
 namespace System.Collections.Generic;
 
 public static class IEnumerableExtensions
 {
+    [DebuggerStepThrough]
     public static DataTable ToDataTable<T>(this IEnumerable<T> collection)
     {
         var newDataTable = new DataTable();

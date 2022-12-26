@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 
@@ -6,11 +7,13 @@ namespace System.Data;
 
 public static class DataTableExtensions
 {
+    [DebuggerStepThrough]
     public static T ToCast<T>(this DataRow dataRow)
     {
         return GetItem<T>(dataRow);
     }
 
+    [DebuggerStepThrough]
     public static List<T> ToList<T>(this DataTable dt)
     {
         List<T> data = new();
@@ -22,6 +25,7 @@ public static class DataTableExtensions
         return data;
     }
 
+    [DebuggerStepThrough]
     private static T GetItem<T>(DataRow dr)
     {
         var temp = typeof(T);
@@ -45,6 +49,7 @@ public static class DataTableExtensions
         return obj;
     }
 
+    [DebuggerStepThrough]
     public static string Json(this DataTable data)
     {
         string json = default;
@@ -56,6 +61,7 @@ public static class DataTableExtensions
         return json;
     }
 
+    [DebuggerStepThrough]
     private static string DataTableToJsonWithStringBuilder(DataTable table)
     {
         var jsonString = new StringBuilder();
