@@ -16,6 +16,17 @@ public static class StringExtensions
 #pragma warning restore CS8603 // Possible null reference return.
     }
 
+    public static string SerializeObject<T>(this T toSerialize)
+    {
+        XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType());
+
+        using (StringWriter textWriter = new StringWriter())
+        {
+            xmlSerializer.Serialize(textWriter, toSerialize);
+            return textWriter.ToString();
+        }
+    }
+
     [DebuggerStepThrough]
     public static string ReadXmlFileString(this string path)
     {
