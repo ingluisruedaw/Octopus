@@ -62,4 +62,11 @@ public static class StringExtensions
             throw ex;
         }
     }
+
+    [DebuggerStepThrough]
+    public static string ShuffleTextSecure(this string source)
+    {
+        var shuffeldChars = source.ShuffleSecure().ToArray();
+        return new string(shuffeldChars);
+    }
 }

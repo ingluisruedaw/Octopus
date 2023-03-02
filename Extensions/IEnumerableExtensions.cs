@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Octopus.Objects;
+using System.Data;
 using System.Diagnostics;
 
 namespace System.Collections.Generic;
@@ -24,5 +25,18 @@ public static class IEnumerableExtensions
             newDataTable.Rows.Add(newDataRow);
         }
         return newDataTable;
+    }
+
+    [DebuggerStepThrough]
+    public static IEnumerable<T> ShuffleSecure<T>(this IEnumerable<T> source)
+    {
+        var sourceArray = source.ToArray();
+        for (int counter = default; counter < sourceArray.Length; counter++)
+        {
+            int randomIndex = new Lazy<RandomSecureVersion>(() => new RandomSecureVersion()).Value.Next(counter, sourceArray.Length);
+            yield return sourceArray[randomIndex];
+
+            sourceArray[randomIndex] = sourceArray[counter];
+        }
     }
 }

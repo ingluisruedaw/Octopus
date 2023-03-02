@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 	<PackageId>Octopus</PackageId>
 	<Title>Octopus</Title>
-	<Version>1.0.1</Version>
+	<Version>1.0.2</Version>
 	<Authors>Luis Domingo Rueda Wilches</Authors>
 	<Company>Luis Domingo Rueda Wilches</Company>
 	<Product>Octopus</Product>
